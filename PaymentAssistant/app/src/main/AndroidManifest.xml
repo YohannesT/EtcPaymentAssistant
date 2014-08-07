@@ -6,7 +6,8 @@
         android:allowBackup="true"
         android:icon="@drawable/assistant"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        android:allowClearUserData="true">
         <activity
             android:name=".activities.FillMobileActivity"
             android:label="@string/app_name" >
@@ -33,35 +34,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.apptech.yohannes.paymentassistant.activities.main" />
         </activity>
-
-        <receiver android:name=".CheckBalance" >
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/check_balance_info" />
-        </receiver>
-        <receiver android:name=".widgets.CheckBalance" >
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/check_balance_info" />
-        </receiver>
-
-        <service
-            android:name=".androidServices.USSDCodeService"
-            android:enabled="true"
-            android:exported="true" >
-        </service>
-        <service
-            android:name=".androidServices.USSDService"
-            android:exported="false" >
-        </service>
     </application>
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
