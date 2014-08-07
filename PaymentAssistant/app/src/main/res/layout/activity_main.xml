@@ -1,0 +1,48 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="1"
+    android:background="#fffff6fc">
+
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <EditText
+        style="@style/numbersTextBox"
+        android:textColor="@color/dark"
+        android:paddingLeft="120dp"
+        android:hint="@string/card_number"
+        android:cursorVisible="false"
+        android:background="@drawable/rounded_border"
+        android:id="@+id/etPhoneNumber"/>
+
+    <Button android:id="@+id/btnOcr"
+        android:background="@drawable/cam"
+        android:textSize="13dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp" android:textColor="#ffffff"/>
+</LinearLayout>
+
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <Button
+            style="@style/standardButton"
+            android:text="@string/check"
+            android:id="@+id/btnCheck"
+            android:layout_weight="0.11"
+            android:background="@drawable/check_button"/>
+
+        <Button
+            style="@style/standardButton"
+            android:text="@string/fill"
+            android:id="@+id/btnFillBalance"
+            android:layout_weight="0.11"
+            android:background="@drawable/fill_button" />
+    </LinearLayout>
+
+
+    <LinearLayout android:id="@+id/fragmentContainer"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" android:orientation="vertical">
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,23 @@
+    <FrameLayout android:id="@+id/previewHolder"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="15mm"
+            android:id="@+id/imgCardNumber"
+            android:layout_gravity="center"
+            android:src="@drawable/card" />
+
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/btnCapture"
+            android:layout_gravity="right|bottom"
+            android:src="@drawable/cam"
+            android:background="@drawable/circle"
+            android:scaleType="centerInside" />
+    </FrameLayout>
+
+

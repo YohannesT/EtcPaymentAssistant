@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="2" >
+
+    <dataSet config="main" >
+        <source path="D:\Projects\Private\Android\EtcAssistant\PaymentAssistant\tess-two\res" />
+        <source path="D:\Projects\Private\Android\EtcAssistant\PaymentAssistant\tess-two\build\generated\res\rs\debug" />
+        <source path="D:\Projects\Private\Android\EtcAssistant\PaymentAssistant\tess-two\build\generated\res\generated\debug" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="D:\Projects\Private\Android\EtcAssistant\PaymentAssistant\tess-two\build-types\debug\res" />
+    </dataSet>
+
+</merger>

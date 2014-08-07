@@ -1,0 +1,31 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="standardButton">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_margin">3dp</item>
+        <item name="android:textSize">26dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="numbersTextBox">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">270dp</item>
+        <item name="android:layout_margin">3dp</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:textSize">26dp</item>
+        <item name="android:inputType">number</item>
+        <item name="android:enabled">true</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:editable">true</item>
+        <item name="android:textIsSelectable">true</item>
+        <item name="android:textColor">@color/dark</item>
+    </style>
+
+</resources>
