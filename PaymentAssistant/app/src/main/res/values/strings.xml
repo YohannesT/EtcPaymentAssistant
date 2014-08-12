@@ -26,5 +26,7 @@
         8/1/2014</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
+    <string name="checkBalanceLongAM">ያለዎት ቀሪ ሂሳብ</string>
+    <string name="checkBalanceLong">Check Balance</string>
 
 </resources>
