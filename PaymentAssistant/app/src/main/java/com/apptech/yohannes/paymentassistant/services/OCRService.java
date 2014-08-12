@@ -2,6 +2,7 @@ package com.apptech.yohannes.paymentassistant.services;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Environment;
 
 
 import com.googlecode.tesseract.android.TessBaseAPI;
@@ -21,11 +22,11 @@ public class OCRService {
     private String path;
     private final String fileName = "eng.traineddata";
 
-    public OCRService(Context context, String path)
+    public OCRService(Context context, String _path)
     {
         tessBase = new TessBaseAPI();
         this.context = context;
-        this.path = path + "/tesseract";
+        path = _path + "/.odata/";
 
         if(!new File(path, fileName).exists())
             SetupResource();
@@ -53,9 +54,14 @@ public class OCRService {
 
     private void SetupResource()
     {
-        try {
+        try
+        {
             InputStream is = context.getAssets().open("eng.mp3");
-            File outFile = new File(path + "tessdata", fileName);
+            String _path = path + "/tessdata";
+            File folder = new File(_path);
+            if(!folder.exists()) folder.mkdirs();
+
+            File outFile = new File(_path, fileName);
             outFile.createNewFile();
 
             OutputStream os = new FileOutputStream(outFile);
@@ -64,6 +70,8 @@ public class OCRService {
             int len = 0;
             while((len = is.read(buff)) > 0)
                 os.write(buff, 0, len);
+
+            boolean x = outFile.exists();
 
             os.flush();
             os.close();
