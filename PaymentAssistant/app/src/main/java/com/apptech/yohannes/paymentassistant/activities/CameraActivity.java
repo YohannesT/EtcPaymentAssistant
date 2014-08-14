@@ -98,7 +98,7 @@ public class CameraActivity extends Activity implements View.OnClickListener, Ca
         bitmap = Bitmap.createBitmap(bitmap, x, y, width, height);
         imgCardNumber.setImageBitmap(bitmap);
 
-        OCRService ocrService = new OCRService();
+        OCRService ocrService = new OCRService(getApplicationContext(), Environment.getExternalStorageDirectory().getPath() );
         String detectedText = ocrService.Read(bitmap);
         Intent intent = new Intent();
         intent.putExtra("detectedText", detectedText);
