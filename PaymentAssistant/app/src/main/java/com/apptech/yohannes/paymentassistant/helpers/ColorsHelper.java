@@ -10,7 +10,35 @@ import java.util.Random;
  */
 public class ColorsHelper {
 
-    private static String colors = "#d0822f,#45ba8f,#910324,#368cc9,#5c5cff,#cacef1,#b7b5ee,#58a799,#e88017,#b7db24,#62c43b,#a33dc2,#ad5289,#8d6996,#63699c,#ad5252,#2036df,#986795,#553606,#5f0130,#5588aa,#d02f72,#7c8083,#f6094c";
+    private static String colors = "#336699,\n" +
+            "#FF6600,\n" +
+            "#336699,\n" +
+            "#666666,\n" +
+            "#663399,\n" +
+            "#8C001A,\n" +
+            "#028482,\n" +
+            "#CC0000,\n" +
+            "#3399FF,\n" +
+            "#287AA9,\n" +
+            "#006699,\n" +
+            "#0099CC,\n" +
+            "#5BC236,\n" +
+            "#990033,\n" +
+            "#FF9900,\n" +
+            "#FF0080,\n" +
+            "#21B6A8,\n" +
+            "#FF8000,\n" +
+            "#266A2E,\n" +
+            "#BD2031,\n" +
+            "#3366CC,\n" +
+            "#6699CC,\n" +
+            "#6699FF,\n" +
+            "#D08AAF,\n" +
+            "#7A3E48,\n" +
+            "#F20056,\n" +
+            "#92CD00,\n" +
+            "#006666,\n" +
+            "#4086AA";
     private static Random random = new Random();
 
     public static int GetRandomColor()
@@ -35,6 +63,6 @@ public class ColorsHelper {
     public static int GetRandomStaticColor()
     {
         String [] clr = colors.split(",");
-        return Color.parseColor(clr[random.nextInt(clr.length -1)]);
+        return Color.parseColor(clr[random.nextInt(clr.length -1)].trim());
     }
 }
