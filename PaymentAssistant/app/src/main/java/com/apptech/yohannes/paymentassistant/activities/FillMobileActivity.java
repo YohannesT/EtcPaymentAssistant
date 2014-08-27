@@ -4,17 +4,14 @@ import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 
 import com.apptech.yohannes.paymentassistant.R;
 import com.apptech.yohannes.paymentassistant.core.BalanceCheckTask;
@@ -38,7 +35,7 @@ public class FillMobileActivity extends Activity implements ContactTasksFragment
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_mobile);
 
         btnCheck = (Button)findViewById(R.id.btnCheck);
         btnFill = (Button)findViewById(R.id.btnFillBalance);
