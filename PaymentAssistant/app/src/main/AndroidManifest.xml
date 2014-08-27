@@ -48,7 +48,7 @@
         </receiver>
 
         <activity
-            android:name=".activities.drawer"
+            android:name=".activities.NavigationDrawer"
             android:label="@string/title_activity_drawer" >
         </activity>
     </application>
