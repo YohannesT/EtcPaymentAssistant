@@ -3,7 +3,13 @@ package com.apptech.yohannes.paymentassistant.activities;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.res.Configuration;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.widget.DrawerLayout;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,24 +28,27 @@ import java.util.List;
  * Created by Yohannes on 8/28/2014.
  */
 public class MainActivity extends Activity implements ContactListFragment.OnFragmentInteractionListener, ContactTasksFragment.OnFragmentInteractionListener {
-    List<Contact> contacts;
+    private List<Contact> contacts;
 
-    private FrameLayout mainContentView;
-    private ListView drawerMenu;
+    private ActionBarDrawerToggle drawerToggle;
+
+    private DrawerLayout drawerLayout;
+   private ListView drawerMenu;
 
     private Fragment contactListFragment;
 
     @Override
     public void onCreate(Bundle bundle){
         super.onCreate(bundle);
-
         setContentView(R.layout.activity_main_navigation);
 
-        mainContentView = (FrameLayout) findViewById(R.id.mainContent);
-        drawerMenu = (ListView)findViewById(R.id.navigationDrawerList);
+        drawerLayout = (DrawerLayout)findViewById(R.id.mainDrawer);
+       drawerMenu = (ListView)findViewById(R.id.navigationDrawerList);
 
         ContactsService contactService = new ContactsService(getApplicationContext());
         contacts = contactService.GetContacts();
+
+           drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.drawable.ic_drawer, R.string.open, R.string.close);
 
         String [] menuItems = getResources().getStringArray(R.array.menuItems);
         drawerMenu.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menuItems));
@@ -61,6 +70,35 @@ public class MainActivity extends Activity implements ContactListFragment.OnFrag
         getFragmentManager().beginTransaction().replace(R.id.mainContent, mobileActivity).commit();
         contactListFragment = ContactListFragment.newInstance(contacts);
         ShowContactListFragment(contacts);
+
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setHomeButtonEnabled(true);
+    }
+
+    @Override
+    public void onPostCreate(Bundle bundle)
+    {
+        super.onPostCreate(bundle);
+        // Sync the toggle state after onRestoreInstanceState has occurred.
+        drawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        drawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Pass the event to ActionBarDrawerToggle, if it returns
+        // true, then it has handled the app icon touch event
+        if (drawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        // Handle your other action bar items...
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
