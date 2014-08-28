@@ -45,7 +45,7 @@ public class ContactsAdapter extends ArrayAdapter<Contact> {
         txtPhone.setText(contact.getPhoneNumber());
 
         if(NameColor == null || !NameColor.first.equals(contact.getName().substring(0,1).toUpperCase()))
-            NameColor = new Pair<String, Integer>(contact.getName().substring(0,1).toUpperCase(), ColorsHelper.GetRandomStaticColor());
+            NameColor = new Pair<String, Integer>(contact.getName().substring(0,1).toUpperCase(), ColorsHelper.GetRandomStaticColor(getContext()));
 
         txtLabel.setText(NameColor.first);
         txtLabel.setBackgroundColor(NameColor.second);
