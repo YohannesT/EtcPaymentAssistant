@@ -17,6 +17,7 @@ import com.apptech.yohannes.paymentassistant.R;
 import com.apptech.yohannes.paymentassistant.domain.Contact;
 import com.apptech.yohannes.paymentassistant.fragments.ContactListFragment;
 import com.apptech.yohannes.paymentassistant.fragments.ContactTasksFragment;
+import com.apptech.yohannes.paymentassistant.fragments.EVDOFragment;
 import com.apptech.yohannes.paymentassistant.services.ContactsService;
 
 import java.util.List;
@@ -58,7 +59,11 @@ public class MainActivity extends Activity implements ContactListFragment.OnFrag
                     getFragmentManager().beginTransaction().replace(R.id.mainContent, fragment).commit();
                     ShowContactListFragment();
                 }
-
+                else if(i == 1)
+                {
+                    Fragment fragment = new EVDOFragment();
+                    getFragmentManager().beginTransaction().replace(R.id.mainContent, fragment).commit();
+                }
                 else {
                     Fragment fragment = new About();
                     getFragmentManager().beginTransaction().replace(R.id.mainContent, fragment).commit();
