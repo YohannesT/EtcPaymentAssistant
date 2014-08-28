@@ -39,7 +39,7 @@
 
     <string-array name="colorArray">
         <item>#336699</item>
-        <item>#FF6600</item>
+        <item>#fff46100</item>
         <item>#336699</item>
         <item>#666666</item>
         <item>#ff4dc669</item>
@@ -51,7 +51,7 @@
         <item>#0099CC</item>
         <item>#5BC236</item>
         <item>#ff11c3dc</item>
-        <item>#FF9900</item>
+        <item>#ff6bde30</item>
         <item>#21B6A8</item>
         <item>#FF8000</item>
         <item>#266A2E</item>
@@ -59,8 +59,8 @@
         <item>#3366CC</item>
         <item>#6699CC</item>
         <item>#6699FF</item>
-        <item>#D08AAF</item>
-        <item>#7A3E48</item>
+        <item>#ffaf9cd0</item>
+        <item>#ff75aeaa</item>
     </string-array>
 
 </resources>
