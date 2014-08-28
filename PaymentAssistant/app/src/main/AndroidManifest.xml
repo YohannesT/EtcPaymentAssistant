@@ -10,32 +10,24 @@
         android:icon="@drawable/assistant"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity
-            android:name=".activities.MobileActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+        <activity android:name=".activities.MainNavigation" android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <activity
             android:name=".activities.CameraActivity"
             android:label="@string/title_activity_camera"
-            android:parentActivityName=".activities.MobileActivity"
+
             android:screenOrientation="landscape" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.apptech.yohannes.paymentassistant.activities.main" />
         </activity>
-        <activity
-            android:name=".activities.About"
-            android:label="@string/title_activity_about"
-            android:parentActivityName=".activities.MobileActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.apptech.yohannes.paymentassistant.activities.main" />
-        </activity>
+
 
         <receiver android:name=".widgets.CheckBalance" >
             <intent-filter>
@@ -47,10 +39,7 @@
                 android:resource="@xml/check_balance_info" />
         </receiver>
 
-        <activity
-            android:name=".activities.NavigationDrawer"
-            android:label="@string/title_activity_drawer" >
-        </activity>
+
     </application>
 
     <uses-permission android:name="android.permission.CALL_PHONE" />

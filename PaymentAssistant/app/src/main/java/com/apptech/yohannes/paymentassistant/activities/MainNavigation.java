@@ -34,11 +34,13 @@ public class MainNavigation extends Activity {
                 String selectedMenuItem = (String) adapterView.getItemAtPosition(i);
                 if(i == 0)
                 {
-
+                    MobileActivity mobileActivity = new MobileActivity();
+                    getFragmentManager().beginTransaction().replace(R.id.mainContent, mobileActivity);
                 }
                 else
                 {
-
+                    About about = new About();
+                    getFragmentManager().beginTransaction().replace(R.id.mainContent, about);
                 }
             }
         });

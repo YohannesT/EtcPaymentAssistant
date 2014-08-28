@@ -8,7 +8,7 @@
         <item>About Tele</item>
     </string-array>
 
-    <string name="app_name">ETC Payment Assistant</string>
+    <string name="app_name">Ethionet Assistant</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_camera">OCR Camera</string>
     <string name="ocr_notice"> The OCR feature is experimental. It\'s reliability depends on several

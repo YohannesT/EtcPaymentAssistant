@@ -12,7 +12,8 @@
 
     <ListView
         android:id="@+id/navigationDrawerList"
-        android:layout_width="240dp"
+        android:background="@color/light"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"></ListView>
 
