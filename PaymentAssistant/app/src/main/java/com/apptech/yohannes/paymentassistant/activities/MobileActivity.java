@@ -1,14 +1,14 @@
 package com.apptech.yohannes.paymentassistant.activities;
 
-import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,7 +24,7 @@ import com.apptech.yohannes.paymentassistant.services.ContactsService;
 
 import java.util.List;
 
-public class MobileActivity extends Activity implements ContactTasksFragment.OnFragmentInteractionListener, ContactListFragment.OnFragmentInteractionListener {
+public class MobileActivity extends Fragment implements ContactTasksFragment.OnFragmentInteractionListener, ContactListFragment.OnFragmentInteractionListener {
     List<Contact> contacts;
 
     //View elements
@@ -33,20 +33,20 @@ public class MobileActivity extends Activity implements ContactTasksFragment.OnF
     private ContactListFragment contactListFragment;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mobile);
+        View view = inflater.inflate(R.layout.activity_mobile, container, false);
 
-        btnCheck = (Button)findViewById(R.id.btnCheck);
-        btnFill = (Button)findViewById(R.id.btnFillBalance);
-        btnOCR = (Button)findViewById(R.id.btnOcr);
-        etCardNumber = (EditText)findViewById(R.id.etPhoneNumber);
+        btnCheck = (Button)view.findViewById(R.id.btnCheck);
+        btnFill = (Button)view.findViewById(R.id.btnFillBalance);
+        btnOCR = (Button)view.findViewById(R.id.btnOcr);
+        etCardNumber = (EditText)view.findViewById(R.id.etPhoneNumber);
 
         EventHandler eventHandler = new EventHandler();
         btnCheck.setOnClickListener(eventHandler);
         btnFill.setOnClickListener(eventHandler);
         btnOCR.setOnClickListener(eventHandler);
-        ContactsService contactService = new ContactsService(getApplicationContext());
+        ContactsService contactService = new ContactsService(getActivity());
         contacts = contactService.GetContacts();
         ShowContactListFragment(contacts);
 
@@ -54,10 +54,12 @@ public class MobileActivity extends Activity implements ContactTasksFragment.OnF
         etCardNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.showSoftInput(etCardNumber, InputMethodManager.SHOW_IMPLICIT);
             }
         });
+
+        return view;
     }
 
     @Override
@@ -84,18 +86,18 @@ public class MobileActivity extends Activity implements ContactTasksFragment.OnF
         public void onClick(View view) {
             if(view == btnCheck)
             {
-                ITask checkTask = new BalanceCheckTask(getApplicationContext());
+                ITask checkTask = new BalanceCheckTask(getActivity());
                 checkTask.Execute();
             }
             else if(view == btnFill)
             {
-                ITask fillTask = new BalanceFillTask(getApplicationContext(), etCardNumber.getText().toString());
+                ITask fillTask = new BalanceFillTask(getActivity(), etCardNumber.getText().toString());
                 fillTask.Execute();
             }
             else if(view == btnOCR)
             {
-                Intent intent = new Intent(MobileActivity.this, CameraActivity.class);
-                startActivityForResult(intent, 9);
+                //Intent intent = new Intent(MobileActivity.this, CameraActivity.class);
+                //startActivityForResult(intent, 9);
             }
         }
 
