@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Created by Yohannes on 8/28/2014.
  */
-public class ActivityMain extends Activity implements ContactListFragment.OnFragmentInteractionListener, ContactTasksFragment.OnFragmentInteractionListener {
+public class MainActivity extends Activity implements ContactListFragment.OnFragmentInteractionListener, ContactTasksFragment.OnFragmentInteractionListener {
     List<Contact> contacts;
 
     private FrameLayout mainContentView;
@@ -63,7 +63,6 @@ public class ActivityMain extends Activity implements ContactListFragment.OnFrag
         ShowContactListFragment(contacts);
     }
 
-
     @Override
     public void ShowContactDetail(Contact contact, int backgroundColor) {
         ContactTasksFragment contactTasksFragment =  ContactTasksFragment.newInstance(contact, backgroundColor);
@@ -74,13 +73,8 @@ public class ActivityMain extends Activity implements ContactListFragment.OnFrag
                 .commit();
     }
 
-
-    private void ShowContactDetailFragment(Contact contact, int labelBackgroundColor) {
-
-    }
-
     @Override
-    public void hideFragment() {
+    public void HideContactDetail() {
         ShowContactListFragment(contacts);
     }
 
