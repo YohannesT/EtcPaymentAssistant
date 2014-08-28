@@ -20,12 +20,12 @@ android {
     sourceSets {
         main {
             java.srcDirs = [
-                                'src/main/java'
-                                , 'src/main/java/domain'
-                                , 'src/main/java/services'
-                                , 'src/main/java/Core'
-                                , 'src/main/java/core'
-                            ]
+                    'src/main/java'
+                    , 'src/main/java/domain'
+                    , 'src/main/java/services'
+                    , 'src/main/java/Core'
+                    , 'src/main/java/core'
+            ]
         }
     }
 }
@@ -34,4 +34,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile files('libs/lib.jar')
     compile project(':tess-two')
+    // You must install or update the Support Repository through the SDK manager to use this dependency.
+    compile 'com.android.support:support-v4:19.+'
 }

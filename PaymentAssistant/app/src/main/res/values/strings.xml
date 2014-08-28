@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="english"></string-array>
+    <string-array name="menuItems" >
+        <item>Moblie</item>
+        <item>EVDO</item>
+        <item>Service Numbers</item>
+        <item>About Tele</item>
+    </string-array>
 
-    <string name="app_name">ETC Payment Assistant</string>
+    <string name="app_name">Ethionet Assistant</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_camera">OCR Camera</string>
     <string name="ocr_notice"> The OCR feature is experimental. It\'s reliability depends on several
@@ -20,6 +25,7 @@
     <string name="title_activity_about">About</string>
     <string name="me">Yohannes Tamru</string>
     <string name="my_email">yohannist@gmail.com</string>
+    <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="about_app">        ETC Payment Assistant
 
@@ -28,5 +34,6 @@
     <string name="add_widget">Add widget</string>
     <string name="checkBalanceLongAM">ያለዎት ቀሪ ሂሳብ</string>
     <string name="checkBalanceLong">Check Balance</string>
+
 
 </resources>
