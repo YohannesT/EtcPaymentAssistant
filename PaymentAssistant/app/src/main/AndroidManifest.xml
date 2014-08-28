@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".activities.FillMobileActivity"
+            android:name=".activities.MobileActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,7 @@
         <activity
             android:name=".activities.CameraActivity"
             android:label="@string/title_activity_camera"
-            android:parentActivityName=".activities.FillMobileActivity"
+            android:parentActivityName=".activities.MobileActivity"
             android:screenOrientation="landscape" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -31,7 +31,7 @@
         <activity
             android:name=".activities.About"
             android:label="@string/title_activity_about"
-            android:parentActivityName=".activities.FillMobileActivity" >
+            android:parentActivityName=".activities.MobileActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.apptech.yohannes.paymentassistant.activities.main" />

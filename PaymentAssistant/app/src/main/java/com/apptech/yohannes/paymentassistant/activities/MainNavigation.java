@@ -2,6 +2,9 @@ package com.apptech.yohannes.paymentassistant.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 
@@ -23,5 +26,23 @@ public class MainNavigation extends Activity {
         mainContentView = (FrameLayout) findViewById(R.id.mainContent);
         drawerMenu = (ListView)findViewById(R.id.navigationDrawerList);
 
+        String [] menuItems = getResources().getStringArray(R.array.menuItems);
+        drawerMenu.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menuItems));
+        drawerMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String selectedMenuItem = (String) adapterView.getItemAtPosition(i);
+                if(i == 0)
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+        });
     }
+
+
 }
