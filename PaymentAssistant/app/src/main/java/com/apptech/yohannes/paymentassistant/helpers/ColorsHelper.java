@@ -1,7 +1,10 @@
 package com.apptech.yohannes.paymentassistant.helpers;
 
 
+import android.content.Context;
 import android.graphics.Color;
+
+import com.apptech.yohannes.paymentassistant.R;
 
 import java.util.Random;
 
@@ -9,8 +12,6 @@ import java.util.Random;
  * Created by Yohannes on 7/30/2014.
  */
 public class ColorsHelper {
-
-    private static String colors = "#d0822f,#45ba8f,#910324,#368cc9,#5c5cff,#cacef1,#b7b5ee,#58a799,#e88017,#b7db24,#62c43b,#a33dc2,#ad5289,#8d6996,#63699c,#ad5252,#2036df,#986795,#553606,#5f0130,#5588aa,#d02f72,#7c8083,#f6094c";
     private static Random random = new Random();
 
     public static int GetRandomColor()
@@ -32,9 +33,10 @@ public class ColorsHelper {
         return  Color.HSVToColor(150, hsvColor);
     }
 
-    public static int GetRandomStaticColor()
+    public static int GetRandomStaticColor(Context context)
     {
-        String [] clr = colors.split(",");
-        return Color.parseColor(clr[random.nextInt(clr.length -1)]);
+        context.getResources().getStringArray(R.array.colorArray);
+        String [] clr = context.getResources().getStringArray(R.array.colorArray);
+        return Color.parseColor(clr[random.nextInt(clr.length -1)].trim());
     }
 }
