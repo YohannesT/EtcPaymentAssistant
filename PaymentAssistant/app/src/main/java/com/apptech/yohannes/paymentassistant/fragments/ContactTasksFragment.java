@@ -12,7 +12,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,13 +22,12 @@ import com.apptech.yohannes.paymentassistant.core.CashTransferTask;
 import com.apptech.yohannes.paymentassistant.core.ITask;
 import com.apptech.yohannes.paymentassistant.domain.Contact;
 import com.apptech.yohannes.paymentassistant.helpers.AnimatableLinearLayout;
-import com.apptech.yohannes.paymentassistant.helpers.ColorsHelper;
 import com.apptech.yohannes.paymentassistant.helpers.Util;
 import com.apptech.yohannes.paymentassistant.services.PhoneService;
 
 public class ContactTasksFragment extends Fragment {
     private Contact contact;
-    private Button btnCall, btnCallMeBack, btnTransferCash, btnSMS;
+    private Button btnCall, btnCallMeBack, btnTransferCash;
     private EventHandler eventHandler = new EventHandler();
     private TextView tvContactName, tvContactPhone, tvContactLabel;
     private AnimatableLinearLayout layout;
@@ -121,7 +119,7 @@ public class ContactTasksFragment extends Fragment {
     }
 
     public interface OnFragmentInteractionListener {
-        public void hideFragment();
+        public void HideContactDetail();
     }
 
     private class EventHandler implements View.OnClickListener, View.OnLongClickListener, View.OnTouchListener, AdapterView.OnItemClickListener
@@ -130,10 +128,6 @@ public class ContactTasksFragment extends Fragment {
         {
             if(view == btnCall)
                 phoneService.Call(contact);
-            else if(view == btnSMS)
-            {
-
-            }
             else if(view == btnCallMeBack)
                 Toast.makeText(getActivity().getBaseContext(), "Tap and hold", Toast.LENGTH_SHORT).show();
             else if(view == btnTransferCash){
@@ -177,7 +171,7 @@ public class ContactTasksFragment extends Fragment {
         public boolean onFling(MotionEvent m1, MotionEvent m2, float velocityX, float velocityY)
         {
             if(m2.getX() - m1.getX() > 40)
-                mListener.hideFragment();
+                mListener.HideContactDetail();
             return true;
         }
     }

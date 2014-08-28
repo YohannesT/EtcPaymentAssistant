@@ -1,19 +1,18 @@
 package com.apptech.yohannes.paymentassistant.activities;
 
-import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import com.apptech.yohannes.paymentassistant.R;
 
-public class About extends Activity {
+public class About extends Fragment {
     private Button btnContact;
     private ImageButton btnAbout;
     private TextView txtMessage;
@@ -21,12 +20,12 @@ public class About extends Activity {
     private int _click_count;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
-        btnAbout = (ImageButton)findViewById(R.id.imgBtnAbout);
-        btnContact = (Button)findViewById(R.id.btnContact);
-        txtMessage = (TextView)findViewById(R.id.txtMessage);
+        View view = inflater.inflate(R.layout.activity_about, container, false);
+        btnAbout = (ImageButton)view.findViewById(R.id.imgBtnAbout);
+        btnContact = (Button)view.findViewById(R.id.btnContact);
+        txtMessage = (TextView)view.findViewById(R.id.txtMessage);
 
         btnAbout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,5 +46,7 @@ public class About extends Activity {
                 Intent intent = new Intent(Intent.ACTION_CAMERA_BUTTON);
             }
         });
+
+        return view;
     }
 }
