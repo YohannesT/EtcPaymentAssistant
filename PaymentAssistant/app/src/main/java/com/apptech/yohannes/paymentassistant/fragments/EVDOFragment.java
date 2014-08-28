@@ -6,14 +6,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.apptech.yohannes.paymentassistant.R;
+
 /**
  * Created by Yohannes on 8/29/2014.
  */
 public class EVDOFragment extends Fragment {
 
     @Override
-    public View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle bundle)
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle bundle)
     {
-    
+        super.onCreate(bundle);
+        View view = inflater.inflate(R.layout.evdo_fragment_layout, container, false);
+
+        return view;
     }
 }
