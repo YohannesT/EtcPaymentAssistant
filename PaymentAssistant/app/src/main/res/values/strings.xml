@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="english" />
+    <string-array name="menuItems" >
+        <item>Moblie</item>
+        <item>EVDO</item>
+        <item>Service Numbers</item>
+        <item>About Tele</item>
+    </string-array>
 
     <string name="app_name">ETC Payment Assistant</string>
     <string name="action_settings">Settings</string>
@@ -28,12 +33,6 @@
     <string name="add_widget">Add widget</string>
     <string name="checkBalanceLongAM">ያለዎት ቀሪ ሂሳብ</string>
     <string name="checkBalanceLong">Check Balance</string>
-    <string name="title_activity_drawer">drawer</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="action_example">Example action</string>
+
 
 </resources>
