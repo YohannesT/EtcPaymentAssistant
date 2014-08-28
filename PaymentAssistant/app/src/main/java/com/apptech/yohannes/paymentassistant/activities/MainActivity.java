@@ -35,8 +35,6 @@ public class MainActivity extends Activity implements ContactListFragment.OnFrag
     private DrawerLayout drawerLayout;
    private ListView drawerMenu;
 
-    private Fragment contactListFragment;
-
     @Override
     public void onCreate(Bundle bundle){
         super.onCreate(bundle);
@@ -56,20 +54,28 @@ public class MainActivity extends Activity implements ContactListFragment.OnFrag
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String selectedMenuItem = (String) adapterView.getItemAtPosition(i);
-                Fragment fragment;
-                if(i == 0)
-                    fragment = new MobileActivity();
-                else
-                    fragment = new About();
 
-                getFragmentManager().beginTransaction().replace(R.id.mainContent, fragment).commit();
+                if(i == 0)
+                {
+                    Fragment fragment = new MobileActivity();
+                    getFragmentManager().beginTransaction().replace(R.id.mainContent, fragment).commit();
+                    ShowContactListFragment();
+                }
+
+                else {
+                    Fragment fragment = new About();
+                    getFragmentManager().beginTransaction().replace(R.id.mainContent, fragment).commit();
+                }
+
+                getActionBar().setTitle(getResources().getString(R.string.app_name) + " " + selectedMenuItem);
+
+                drawerLayout.closeDrawers();
             }
         });
 
         MobileActivity mobileActivity = new MobileActivity();
         getFragmentManager().beginTransaction().replace(R.id.mainContent, mobileActivity).commit();
-        contactListFragment = ContactListFragment.newInstance(contacts);
-        ShowContactListFragment(contacts);
+        ShowContactListFragment();
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
@@ -113,11 +119,11 @@ public class MainActivity extends Activity implements ContactListFragment.OnFrag
 
     @Override
     public void HideContactDetail() {
-        ShowContactListFragment(contacts);
+        ShowContactListFragment();
     }
 
-    private void ShowContactListFragment(List<Contact> contactList) {
-
+    private void ShowContactListFragment() {
+        Fragment contactListFragment = ContactListFragment.newInstance(contacts);
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.setCustomAnimations(R.animator.animate_in, R.animator.animate_out);
         fragmentTransaction.replace(R.id.fragmentContainer, contactListFragment).commit();
