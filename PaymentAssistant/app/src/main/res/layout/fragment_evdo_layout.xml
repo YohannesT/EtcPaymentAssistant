@@ -13,10 +13,13 @@
         android:layout_height="wrap_content"
         android:inputType="phone"
         android:ems="10"
+        android:cursorVisible="false"
+        style="@style/numbersTextBox"
         android:hint="@string/evdoNumber" />
 
     <Button
         android:id="@+id/btnCheckEVDOBalance"
+        style="@style/standardButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/call_me_button"
@@ -31,6 +34,8 @@
         android:background="@drawable/rounded_border"
         android:inputType="number"
         android:ems="10"
+        android:cursorVisible="false"
+        style="@style/numbersTextBox"
         android:hint="@string/card_number"
         android:layout_gravity="center_horizontal" />
 
@@ -40,6 +45,7 @@
         android:background="@drawable/transfer_button"
         android:text="@string/fill"
         android:id="@+id/btnFillEvdo"
+        style="@style/standardButton"
         android:layout_gravity="center_horizontal" />
 
 
