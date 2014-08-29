@@ -2,19 +2,32 @@
 <android.support.v4.widget.DrawerLayout android:id="@+id/mainDrawer"
     android:layout_width="match_parent" android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
     <FrameLayout
         android:id="@+id/mainContent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        
-        </FrameLayout>
+        android:layout_height="match_parent"/>
 
-    <ListView
-        android:id="@+id/navigationDrawerList"
-        android:background="@color/light"
-        android:layout_width="250dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"></ListView>
+
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="fill_parent"
+            android:layout_gravity="start"
+            android:background="@color/light"
+            android:orientation="vertical"
+            android:gravity="start">
+
+        <ListView
+            android:id="@+id/navigationDrawerList"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:choiceMode="singleChoice"/>
+
+        <RatingBar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/ratingBar"
+            android:numStars="5" />
+
+        </LinearLayout>
 
     </android.support.v4.widget.DrawerLayout>
