@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.apptech.yohannes.paymentassistant.R;
 import com.apptech.yohannes.paymentassistant.activities.CameraActivity;
@@ -18,6 +19,7 @@ import com.apptech.yohannes.paymentassistant.core.BalanceCheckTask;
 import com.apptech.yohannes.paymentassistant.core.BalanceFillTask;
 import com.apptech.yohannes.paymentassistant.core.ITask;
 import com.apptech.yohannes.paymentassistant.fragments.ContactListFragment;
+import com.apptech.yohannes.paymentassistant.helpers.Util;
 
 public class MobileFragment extends Fragment  {
 
@@ -72,6 +74,12 @@ public class MobileFragment extends Fragment  {
             }
             else if(view == btnFill)
             {
+                if(!Util.IsValidCardNumber(etCardNumber.getText().toString()))
+                {
+                    Toast.makeText(getActivity(), "Please put in a valid card number", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
                 ITask fillTask = new BalanceFillTask(getActivity(), etCardNumber.getText().toString());
                 fillTask.Execute();
             }

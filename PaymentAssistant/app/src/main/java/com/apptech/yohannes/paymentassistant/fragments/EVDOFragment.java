@@ -12,11 +12,13 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.apptech.yohannes.paymentassistant.R;
 import com.apptech.yohannes.paymentassistant.core.EVDOBalanceCheckTask;
 import com.apptech.yohannes.paymentassistant.core.EVDOFillTask;
 import com.apptech.yohannes.paymentassistant.core.ITask;
+import com.apptech.yohannes.paymentassistant.helpers.Util;
 
 /**
  * Created by Yohannes on 8/29/2014.
@@ -66,11 +68,23 @@ public class EVDOFragment extends Fragment {
         {
             if(view == btnEvdoCheck)
             {
+                if(!Util.IsValidPhoneNumber(txtEvdoPhoneNumber.getText().toString()))
+                {
+                    Toast.makeText(getActivity(), "Please put in the EVDO phone number", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
                 task = new EVDOBalanceCheckTask(getActivity(), txtEvdoPhoneNumber.getText().toString());
                 task.Execute();
             }
             else if(view == btnEvdoFill)
             {
+                if(!Util.IsValidCardNumber(txtCardNumber.getText().toString()) || !Util.IsValidPhoneNumber(txtEvdoPhoneNumber.getText().toString()))
+                {
+                    Toast.makeText(getActivity(), "Please put in a valid card number", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
                 task = new EVDOFillTask(getActivity(), txtEvdoPhoneNumber.getText().toString(), txtCardNumber.getText().toString());
                 task.Execute();
             }
