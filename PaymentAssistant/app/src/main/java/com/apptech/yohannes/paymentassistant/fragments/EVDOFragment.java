@@ -9,10 +9,14 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.apptech.yohannes.paymentassistant.R;
+import com.apptech.yohannes.paymentassistant.core.EVDOBalanceCheckTask;
+import com.apptech.yohannes.paymentassistant.core.EVDOFillTask;
+import com.apptech.yohannes.paymentassistant.core.ITask;
 
 /**
  * Created by Yohannes on 8/29/2014.
  */
+
 public class EVDOFragment extends Fragment {
     private Button btnEvdoFill, btnEvdoCheck;
     private EditText txtEvdoPhoneNumber, txtCardNumber;
@@ -37,16 +41,19 @@ public class EVDOFragment extends Fragment {
 
     private class EventHandler implements View.OnClickListener
     {
+        private ITask task;
         @Override
         public void onClick(View view)
         {
             if(view == btnEvdoCheck)
             {
-
+                task = new EVDOBalanceCheckTask(getActivity(), txtEvdoPhoneNumber.getText().toString());
+                task.Execute();
             }
             else if(view == btnEvdoFill)
             {
-
+                task = new EVDOFillTask(getActivity(), txtEvdoPhoneNumber.getText().toString(), txtCardNumber.getText().toString());
+                task.Execute();
             }
         }
     }
