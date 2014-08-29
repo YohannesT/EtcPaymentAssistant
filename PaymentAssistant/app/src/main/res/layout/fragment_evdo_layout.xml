@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/dark"
+        android:textSize="12dp"
+        android:text="@string/evdoNumber"
+        />
+
+    <EditText
+        android:id="@+id/txtEVDOPhoneNumber"
+        android:layout_gravity = "center_vertical|center_horizontal"
+        android:background="@drawable/rounded_border"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:textAlignment="center"
+        android:cursorVisible="false"
+        style="@style/numbersTextBox"
+        android:hint="@string/evdoNumber" />
+
+    <EditText
+        android:id="@+id/txtEvdoCardNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_border"
+        android:inputType="number"
+        android:ems="10"
+        android:cursorVisible="false"
+        style="@style/numbersTextBox"
+        android:hint="@string/card_number"
+        android:layout_gravity="center_vertical|center_horizontal" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
+
+        <Button
+            android:id="@+id/btnCheckEVDOBalance"
+            style="@style/standardButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/check_button"
+            android:text="@string/check"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fill_button"
+            android:text="@string/fill"
+            android:id="@+id/btnFillEvdo"
+            android:layout_weight="1"
+            style="@style/standardButton"
+            android:layout_gravity="center_horizontal" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark"
+        android:layout_gravity="bottom"
+        android:textSize="12dp"
+        android:text="@string/evdoNotice"/>
+</LinearLayout>

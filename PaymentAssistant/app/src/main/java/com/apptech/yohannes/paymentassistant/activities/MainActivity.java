@@ -15,8 +15,11 @@ import android.widget.ListView;
 
 import com.apptech.yohannes.paymentassistant.R;
 import com.apptech.yohannes.paymentassistant.domain.Contact;
+import com.apptech.yohannes.paymentassistant.fragments.AboutFragment;
 import com.apptech.yohannes.paymentassistant.fragments.ContactListFragment;
 import com.apptech.yohannes.paymentassistant.fragments.ContactTasksFragment;
+import com.apptech.yohannes.paymentassistant.fragments.EVDOFragment;
+import com.apptech.yohannes.paymentassistant.fragments.MobileFragment;
 import com.apptech.yohannes.paymentassistant.services.ContactsService;
 
 import java.util.List;
@@ -54,13 +57,17 @@ public class MainActivity extends Activity implements ContactListFragment.OnFrag
 
                 if(i == 0)
                 {
-                    Fragment fragment = new MobileActivity();
+                    Fragment fragment = new MobileFragment();
                     getFragmentManager().beginTransaction().replace(R.id.mainContent, fragment).commit();
                     ShowContactListFragment();
                 }
-
+                else if(i == 1)
+                {
+                    Fragment fragment = new EVDOFragment();
+                    getFragmentManager().beginTransaction().replace(R.id.mainContent, fragment).commit();
+                }
                 else {
-                    Fragment fragment = new About();
+                    Fragment fragment = new AboutFragment();
                     getFragmentManager().beginTransaction().replace(R.id.mainContent, fragment).commit();
                 }
 
@@ -70,7 +77,7 @@ public class MainActivity extends Activity implements ContactListFragment.OnFrag
             }
         });
 
-        Fragment mobileActivity = new MobileActivity();
+        Fragment mobileActivity = new MobileFragment();
         getFragmentManager().beginTransaction().replace(R.id.mainContent, mobileActivity).commit();
         ShowContactListFragment();
 

@@ -1,4 +1,4 @@
-package com.apptech.yohannes.paymentassistant.activities;
+package com.apptech.yohannes.paymentassistant.fragments;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -11,14 +11,17 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.apptech.yohannes.paymentassistant.R;
+import com.apptech.yohannes.paymentassistant.activities.CameraActivity;
 import com.apptech.yohannes.paymentassistant.core.BalanceCheckTask;
 import com.apptech.yohannes.paymentassistant.core.BalanceFillTask;
 import com.apptech.yohannes.paymentassistant.core.ITask;
 import com.apptech.yohannes.paymentassistant.fragments.ContactListFragment;
+import com.apptech.yohannes.paymentassistant.helpers.Util;
 
-public class MobileActivity extends Fragment  {
+public class MobileFragment extends Fragment  {
 
     //View elements
     private Button btnCheck, btnFill, btnOCR;
@@ -28,7 +31,7 @@ public class MobileActivity extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View view = inflater.inflate(R.layout.activity_mobile, container, false);
+        View view = inflater.inflate(R.layout.fragment_mobile, container, false);
 
         btnCheck = (Button)view.findViewById(R.id.btnCheck);
         btnFill = (Button)view.findViewById(R.id.btnFillBalance);
@@ -71,13 +74,19 @@ public class MobileActivity extends Fragment  {
             }
             else if(view == btnFill)
             {
+                if(!Util.IsValidCardNumber(etCardNumber.getText().toString()))
+                {
+                    Toast.makeText(getActivity(), "Please put in a valid card number", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
                 ITask fillTask = new BalanceFillTask(getActivity(), etCardNumber.getText().toString());
                 fillTask.Execute();
             }
             else if(view == btnOCR)
             {
-                //Intent intent = new Intent(MobileActivity.this, CameraActivity.class);
-                //startActivityForResult(intent, 9);
+                Intent intent = new Intent(getActivity(), CameraActivity.class);
+                startActivityForResult(intent, 9);
             }
         }
 

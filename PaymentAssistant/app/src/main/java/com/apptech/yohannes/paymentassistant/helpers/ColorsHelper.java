@@ -37,6 +37,6 @@ public class ColorsHelper {
     {
         context.getResources().getStringArray(R.array.colorArray);
         String [] clr = context.getResources().getStringArray(R.array.colorArray);
-        return Color.parseColor(clr[random.nextInt(clr.length -1)].trim());
+        return Color.parseColor(clr[random.nextInt(clr.length - 2)].trim());
     }
 }

@@ -1,4 +1,4 @@
-package com.apptech.yohannes.paymentassistant.activities;
+package com.apptech.yohannes.paymentassistant.fragments;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.apptech.yohannes.paymentassistant.R;
 
-public class About extends Fragment {
+public class AboutFragment extends Fragment {
     private Button btnContact;
     private ImageButton btnAbout;
     private TextView txtMessage;
@@ -22,7 +22,7 @@ public class About extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View view = inflater.inflate(R.layout.activity_about, container, false);
+        View view = inflater.inflate(R.layout.fragment_about, container, false);
         btnAbout = (ImageButton)view.findViewById(R.id.imgBtnAbout);
         btnContact = (Button)view.findViewById(R.id.btnContact);
         txtMessage = (TextView)view.findViewById(R.id.txtMessage);

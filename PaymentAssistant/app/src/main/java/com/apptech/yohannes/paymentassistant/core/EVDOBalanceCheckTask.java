@@ -3,19 +3,19 @@ package com.apptech.yohannes.paymentassistant.core;
 import android.content.Context;
 import android.net.Uri;
 
-import com.apptech.yohannes.paymentassistant.domain.CallTarget;
 import com.apptech.yohannes.paymentassistant.domain.TaskType;
-import com.apptech.yohannes.paymentassistant.helpers.ServiceNumbers;
 import com.apptech.yohannes.paymentassistant.services.PhoneService;
 
 /**
  * Created by Yohannes on 7/19/2014.
  */
-public class BalanceCheckTask implements ITask {
-   private PhoneService _phoneService;
+public class EVDOBalanceCheckTask implements ITask {
+    private PhoneService _phoneService;
+    private String evdoPhoneNumber;
 
-    public BalanceCheckTask(Context context)
+    public EVDOBalanceCheckTask(Context context, String evdoPhoneNumber)
     {
+        this.evdoPhoneNumber = evdoPhoneNumber;
         _phoneService = new PhoneService(context);
     }
 
@@ -25,6 +25,7 @@ public class BalanceCheckTask implements ITask {
 
     @Override
     public Boolean Execute() {
-        return _phoneService.Call("*804" + Uri.encode("#"));
+        String code = "903" + Uri.encode(";") + "2" + Uri.encode("#;") + evdoPhoneNumber + Uri.encode("#;") + "000000" + Uri.encode("#");
+        return _phoneService.Call(code);
     }
 }

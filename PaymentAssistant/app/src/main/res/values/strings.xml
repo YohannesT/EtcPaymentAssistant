@@ -35,6 +35,8 @@
     <string name="add_widget">Add widget</string>
     <string name="checkBalanceLongAM">ያለዎት ቀሪ ሂሳብ</string>
     <string name="checkBalanceLong">Check Balance</string>
+    <string name="evdoNumber">EVDO Phone Number</string>
+    <string name="evdoNotice">*Note: The app will prepare the required inputs to interact with the 903 phone service but you still needs to tap \"yes\" to send the inputs at the proper time.</string>
 
 
     <string-array name="colorArray">
