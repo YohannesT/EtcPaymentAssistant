@@ -1,4 +1,4 @@
-package com.apptech.yohannes.paymentassistant.activities;
+package com.apptech.yohannes.paymentassistant.fragments;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.apptech.yohannes.paymentassistant.R;
 
-public class About extends Fragment {
+public class AboutFragment extends Fragment {
     private Button btnContact;
     private ImageButton btnAbout;
     private TextView txtMessage;

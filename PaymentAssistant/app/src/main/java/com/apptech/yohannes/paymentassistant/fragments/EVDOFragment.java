@@ -42,6 +42,7 @@ public class EVDOFragment extends Fragment {
     private class EventHandler implements View.OnClickListener
     {
         private ITask task;
+
         @Override
         public void onClick(View view)
         {

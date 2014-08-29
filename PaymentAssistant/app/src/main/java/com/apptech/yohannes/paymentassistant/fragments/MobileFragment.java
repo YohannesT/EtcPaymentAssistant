@@ -1,4 +1,4 @@
-package com.apptech.yohannes.paymentassistant.activities;
+package com.apptech.yohannes.paymentassistant.fragments;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -18,7 +18,7 @@ import com.apptech.yohannes.paymentassistant.core.BalanceFillTask;
 import com.apptech.yohannes.paymentassistant.core.ITask;
 import com.apptech.yohannes.paymentassistant.fragments.ContactListFragment;
 
-public class MobileActivity extends Fragment  {
+public class MobileFragment extends Fragment  {
 
     //View elements
     private Button btnCheck, btnFill, btnOCR;
