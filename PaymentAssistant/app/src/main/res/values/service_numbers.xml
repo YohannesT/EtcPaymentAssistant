@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emergencyNumbers">
+        <item>Police, 011</item>
+        <item>Fire Dept, 012</item>
+    </string-array>
+</resources>
