@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="dark">#444444</color>
+    <color name="dark">#555555</color>
     <color name="light">#dddddd</color>
     <color name="very_light">#efefef</color>
     <color name="ultra_light">#fbfbfb</color>
