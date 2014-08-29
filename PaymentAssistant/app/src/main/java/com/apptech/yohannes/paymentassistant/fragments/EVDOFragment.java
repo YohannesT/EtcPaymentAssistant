@@ -17,7 +17,7 @@ public class EVDOFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle bundle)
     {
         super.onCreate(bundle);
-        View view = inflater.inflate(R.layout.evdo_fragment_layout, container, false);
+        View view = inflater.inflate(R.layout.fragment_evdo_layout, container, false);
 
         return view;
     }

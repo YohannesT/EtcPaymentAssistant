@@ -22,7 +22,7 @@ public class About extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View view = inflater.inflate(R.layout.activity_about, container, false);
+        View view = inflater.inflate(R.layout.fragment_about, container, false);
         btnAbout = (ImageButton)view.findViewById(R.id.imgBtnAbout);
         btnContact = (Button)view.findViewById(R.id.btnContact);
         txtMessage = (TextView)view.findViewById(R.id.txtMessage);
