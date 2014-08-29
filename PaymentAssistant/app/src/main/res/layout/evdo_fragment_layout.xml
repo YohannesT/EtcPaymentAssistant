@@ -5,33 +5,42 @@
     android:layout_height="match_parent"
     android:weightSum="1">
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="EVDO"
-        android:id="@+id/textView"
-        android:layout_weight="0.12"
-        android:textStyle="normal"
-        android:typeface="normal"
-        android:textIsSelectable="false"
-        android:textSize="40dp"
-        android:gravity="center_vertical|center_horizontal" />
-
-    <ImageView
+    <EditText
+        android:id="@+id/txtEVDOPhoneNumber"
+        android:layout_gravity = "center_vertical|center_horizontal"
+        android:background="@drawable/rounded_border"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.12"
-        android:src="@drawable/assistant" />
+        android:inputType="phone"
+        android:ems="10"
+        android:hint="@string/evdoNumber" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btnCheckEVDOBalance"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Features coming soon"
-        android:id="@+id/textView2"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.12" />
+        android:background="@drawable/call_me_button"
+        android:text="@string/check"
+        android:layout_gravity="center_horizontal" />
+
+
+    <EditText
+        android:id="@+id/txtCardNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_border"
+        android:inputType="number"
+        android:ems="10"
+        android:hint="@string/card_number"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/transfer_button"
+        android:text="@string/fill"
+        android:id="@+id/btnFillEvdo"
+        android:layout_gravity="center_horizontal" />
+
+
 </LinearLayout>

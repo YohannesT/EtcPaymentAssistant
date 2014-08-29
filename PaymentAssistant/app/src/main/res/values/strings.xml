@@ -35,6 +35,7 @@
     <string name="add_widget">Add widget</string>
     <string name="checkBalanceLongAM">ያለዎት ቀሪ ሂሳብ</string>
     <string name="checkBalanceLong">Check Balance</string>
+    <string name="evdoNumber">EVDO Phone Number</string>
 
 
     <string-array name="colorArray">
