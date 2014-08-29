@@ -12,18 +12,15 @@ import com.apptech.yohannes.paymentassistant.services.PhoneService;
  * Created by Yohannes on 7/19/2014.
  */
 public class BalanceCheckTask implements ITask {
-    Context _context;
-    private PhoneService _phoneService;
-    private TaskType _task_type;
+   private PhoneService _phoneService;
 
     public BalanceCheckTask(Context context)
     {
-        _context = context;
         _phoneService = new PhoneService(context);
     }
 
     public TaskType GetTaskType() {
-        return _task_type;
+        return TaskType.BalanceCheck;
     }
 
     @Override

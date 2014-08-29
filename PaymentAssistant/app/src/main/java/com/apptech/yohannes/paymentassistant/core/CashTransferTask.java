@@ -26,11 +26,11 @@ public class CashTransferTask implements ITask {
 
     @Override
     public TaskType GetTaskType() {
-        return null;
+        return TaskType.CashTransfer;
     }
 
     @Override
     public Boolean Execute() {
-        return _phoneService.Call("*806*" + _contact.getPhoneNumber()+ "*" + _cash + Uri.encode("#"));
+        return _phoneService.Call("*806*" + _contact.getPhoneNumber()+ "*" + _cash +  Uri.encode("#"));
     }
 }
