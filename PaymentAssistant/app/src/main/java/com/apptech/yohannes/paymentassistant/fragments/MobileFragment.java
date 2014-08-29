@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.apptech.yohannes.paymentassistant.R;
+import com.apptech.yohannes.paymentassistant.activities.CameraActivity;
 import com.apptech.yohannes.paymentassistant.core.BalanceCheckTask;
 import com.apptech.yohannes.paymentassistant.core.BalanceFillTask;
 import com.apptech.yohannes.paymentassistant.core.ITask;
@@ -76,8 +77,8 @@ public class MobileFragment extends Fragment  {
             }
             else if(view == btnOCR)
             {
-                //Intent intent = new Intent(MobileActivity.this, CameraActivity.class);
-                //startActivityForResult(intent, 9);
+                Intent intent = new Intent(getActivity(), CameraActivity.class);
+                startActivityForResult(intent, 9);
             }
         }
 
