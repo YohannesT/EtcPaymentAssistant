@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.apptech.yohannes.paymentassistant.R;
@@ -75,6 +76,15 @@ public class ServiceNumbersExpandableListAdapater extends BaseExpandableListAdap
     public View getGroupView(int i, boolean b, View view, ViewGroup viewGroup) {
         view = inflater.inflate(R.layout.service_number_group, null);
         TextView txtGroupTitle = (TextView) view.findViewById(R.id.txtGroupTitle);
+        ImageView imgTitle = (ImageView)view.findViewById(R.id.imgGroupHeader);
+
+        if(i == 0)
+            imgTitle.setImageResource(R.drawable.flag_red);
+        else if ( i == 1)
+            imgTitle.setImageResource(R.drawable.flag_green);
+        else if(i == 2)
+            imgTitle.setImageResource(R.drawable.flag_blue);
+
         txtGroupTitle.setText(headers.get(i));
 
         return view;
