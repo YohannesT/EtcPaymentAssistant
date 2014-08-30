@@ -1,9 +1,11 @@
 package com.apptech.yohannes.paymentassistant.activities;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
@@ -36,6 +38,7 @@ public class MainActivity extends Activity implements ContactListFragment.OnFrag
     private DrawerLayout drawerLayout;
     private ListView drawerMenu;
 
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
     public void onCreate(Bundle bundle){
         super.onCreate(bundle);
@@ -83,14 +86,15 @@ public class MainActivity extends Activity implements ContactListFragment.OnFrag
             }
         });
 
-        Fragment mobileActivity = new MobileFragment();
-        getFragmentManager().beginTransaction().replace(R.id.mainContent, mobileActivity).commit();
-        ShowContactListFragment();
+        if(bundle == null){
+        //if brand new instance of the app is started, this code will load mobile fragment, else, leave the previous fragment untouched
+            Fragment mobileActivity = new MobileFragment();
+            getFragmentManager().beginTransaction().replace(R.id.mainContent, mobileActivity).commit();
+            ShowContactListFragment();
+        }
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
-
-        contactListFragment = ContactListFragment.newInstance(contacts);
     }
 
     @Override
@@ -140,7 +144,15 @@ public class MainActivity extends Activity implements ContactListFragment.OnFrag
 
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.setCustomAnimations(R.animator.animate_in, R.animator.animate_out);
-        fragmentTransaction.remove(contactListFragment);//this solves a problem where the contact list is sometimes not displayed
+
+        try
+        {
+            fragmentTransaction.remove(contactListFragment);//this solves a problem where the contact list is sometimes not displayed
+        }
+         catch (Exception ex)
+         {
+             //ignore this error
+         }
         fragmentTransaction.replace(R.id.fragmentContainer, contactListFragment).commit();
     }
 
