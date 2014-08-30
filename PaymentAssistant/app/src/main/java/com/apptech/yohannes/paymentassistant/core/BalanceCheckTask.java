@@ -3,9 +3,7 @@ package com.apptech.yohannes.paymentassistant.core;
 import android.content.Context;
 import android.net.Uri;
 
-import com.apptech.yohannes.paymentassistant.domain.CallTarget;
 import com.apptech.yohannes.paymentassistant.domain.TaskType;
-import com.apptech.yohannes.paymentassistant.helpers.ServiceNumbers;
 import com.apptech.yohannes.paymentassistant.services.PhoneService;
 
 /**
