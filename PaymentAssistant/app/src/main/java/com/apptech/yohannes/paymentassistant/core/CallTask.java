@@ -11,10 +11,12 @@ import com.apptech.yohannes.paymentassistant.services.PhoneService;
  */
 public class CallTask implements ITask {
    private PhoneService _phoneService;
+   private String phoneNumber;
 
-    public CallTask(Context context)
+    public CallTask(Context context, String phoneNumber)
     {
         _phoneService = new PhoneService(context);
+        this.phoneNumber = phoneNumber;
     }
 
     public TaskType GetTaskType() {
@@ -23,6 +25,6 @@ public class CallTask implements ITask {
 
     @Override
     public Boolean Execute() {
-        return _phoneService.Call("*804" + Uri.encode("#"));
+        return _phoneService.Call(phoneNumber);
     }
 }
