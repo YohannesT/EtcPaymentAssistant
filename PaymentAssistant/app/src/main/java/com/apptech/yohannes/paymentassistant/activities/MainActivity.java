@@ -20,6 +20,7 @@ import com.apptech.yohannes.paymentassistant.fragments.mobile.ContactListFragmen
 import com.apptech.yohannes.paymentassistant.fragments.mobile.ContactTasksFragment;
 import com.apptech.yohannes.paymentassistant.fragments.evdo.EVDOFragment;
 import com.apptech.yohannes.paymentassistant.fragments.mobile.MobileFragment;
+import com.apptech.yohannes.paymentassistant.fragments.service_numbers.ServiceNumbersFragment;
 import com.apptech.yohannes.paymentassistant.services.ContactsService;
 
 import java.util.List;
@@ -66,12 +67,17 @@ public class MainActivity extends Activity implements ContactListFragment.OnFrag
                     Fragment fragment = new EVDOFragment();
                     getFragmentManager().beginTransaction().replace(R.id.mainContent, fragment).commit();
                 }
+                else if(i == 2)
+                {
+                    Fragment fragment = new ServiceNumbersFragment();
+                    getFragmentManager().beginTransaction().replace(R.id.mainContent, fragment).commit();
+                }
                 else {
                     Fragment fragment = new AboutFragment();
                     getFragmentManager().beginTransaction().replace(R.id.mainContent, fragment).commit();
                 }
 
-                getActionBar().setTitle(getResources().getString(R.string.app_name) + " " + selectedMenuItem);
+                getActionBar().setTitle(getResources().getString(R.string.app_name) + ": " + selectedMenuItem);
 
                 drawerLayout.closeDrawers();
             }

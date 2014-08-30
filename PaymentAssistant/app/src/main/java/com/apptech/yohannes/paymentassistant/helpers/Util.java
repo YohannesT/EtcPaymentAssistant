@@ -19,7 +19,7 @@ public class Util {
 
     public static boolean IsValidCardNumber(String cardNumber)
     {
-        if(IsValidPhoneNumber(cardNumber) && cardNumber.length() == 15)
+        if(IsValidPhoneNumber(cardNumber) && cardNumber.length() == 14)
             return true;
 
         return false;
