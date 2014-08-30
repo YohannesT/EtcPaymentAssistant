@@ -19,7 +19,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
         android:id="@+id/txtGroupTitle"
-        android:textSize="28dp"
+        android:textSize="25dp"
         android:textAlignment="center"
         android:textColor="@color/dark" />
 </LinearLayout>
