@@ -5,19 +5,22 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:id="@+id/imageView"
-        android:layout_gravity="left|top"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:id="@+id/imgGroupHeader"
         android:src="@drawable/etflag"
-        android:scaleType="fitXY" />
+        android:scaleType="fitXY"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp" />
 
     <TextView
         android:layout_width="fill_parent"
-        android:layout_height="140dp"
+        android:layout_height="110dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
         android:id="@+id/txtGroupTitle"
-        android:layout_gravity="right|top"
-        android:textSize="56dp" />
+        android:layout_gravity="center"
+        android:textSize="28dp"
+        android:textAlignment="center"
+        android:textColor="@color/dark" />
 </LinearLayout>

@@ -12,28 +12,29 @@
         android:id="@+id/txtServiceName"
         android:layout_weight="1"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="0dp"
+        android:layout_marginLeft="10dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="0dp"
-        android:textSize="30dp" />
+        android:textSize="24dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/txtServicePhone"
-        android:textSize="25dp"
+        android:textSize="18dp"
         android:layout_below="@+id/txtServiceName"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp" />
 
     <ImageButton
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:id="@+id/btnCallService"
         android:scaleType="fitStart"
         android:layout_weight="1"
-        android:background="@drawable/call_button"
+        android:background="@color/light"
         android:src="@drawable/call"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"

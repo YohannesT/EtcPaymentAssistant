@@ -47,7 +47,7 @@ public class CheckBalance extends AppWidgetProvider {
 
      void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
             int appWidgetId) {
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.check_balance);
+        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_check_balance);
         views.setOnClickPendingIntent(R.id.appwidget_text, GetSelfPendingIntent(context, "CheckBalance"));
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }
