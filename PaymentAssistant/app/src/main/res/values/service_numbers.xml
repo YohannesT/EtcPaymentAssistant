@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string-array name="emergencyNumbers">
         <item>Police, 011</item>
         <item>Fire Dept, 012</item>
-
     </string-array>
+
+    <string-array name="teleServiceNumbers">
+        <item>Information 1, 997</item>
+        <item>Information 2, 998</item>
+    </string-array>
+
 </resources>

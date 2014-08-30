@@ -18,13 +18,26 @@ public class ServiceNumbersService {
         this.context = context;
     }
 
-    public List<ServiceNumber> GetServiceNumbers() {
+    public List<ServiceNumber> GetEmergencyServiceNumbers() {
         List<ServiceNumber> sns = new ArrayList<ServiceNumber>();
 
         String[] serviceNumbers = context.getResources().getStringArray(R.array.emergencyNumbers);
         for (String serviceNumber : serviceNumbers) {
-            String name = serviceNumber.split(",")[0];
-            String phoneNumber = serviceNumber.split(",")[1];
+            String name = serviceNumber.split(",")[0].trim();
+            String phoneNumber = serviceNumber.split(",")[1].trim();
+            sns.add(new ServiceNumber(name, phoneNumber));
+        }
+
+        return sns;
+    }
+
+    public List<ServiceNumber> GetTeleServiceNumbers() {
+        List<ServiceNumber> sns = new ArrayList<ServiceNumber>();
+
+        String[] serviceNumbers = context.getResources().getStringArray(R.array.teleServiceNumbers);
+        for (String serviceNumber : serviceNumbers) {
+            String name = serviceNumber.split(",")[0].trim();
+            String phoneNumber = serviceNumber.split(",")[1].trim();
             sns.add(new ServiceNumber(name, phoneNumber));
         }
 

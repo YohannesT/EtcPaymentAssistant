@@ -48,7 +48,7 @@ public class ServiceNumbersExpandableListAdapater extends BaseExpandableListAdap
 
     @Override
     public Object getGroup(int i) {
-        return serviceNumbers.get(i);
+        return serviceNumbers.get(headers.get(i));
     }
 
     @Override
@@ -73,8 +73,7 @@ public class ServiceNumbersExpandableListAdapater extends BaseExpandableListAdap
 
     @Override
     public View getGroupView(int i, boolean b, View view, ViewGroup viewGroup) {
-
-        view = view.inflate(context, R.layout.service_number_group, viewGroup);
+        view = inflater.inflate(R.layout.service_number_group, null);
         TextView txtGroupTitle = (TextView) view.findViewById(R.id.txtGroupTitle);
         txtGroupTitle.setText(headers.get(i));
 
@@ -83,7 +82,7 @@ public class ServiceNumbersExpandableListAdapater extends BaseExpandableListAdap
 
     @Override
     public View getChildView(int i, int i2, boolean b, View view, ViewGroup viewGroup) {
-        view = view.inflate(context, R.layout.service_number, viewGroup);
+        view = inflater.inflate(R.layout.service_number, null);
         final ServiceNumber serviceNumber = (ServiceNumber) getChild(i, i2);
 
         TextView txtServiceName = (TextView)view.findViewById(R.id.txtServiceName);
