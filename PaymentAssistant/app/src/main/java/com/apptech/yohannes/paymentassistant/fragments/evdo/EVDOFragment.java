@@ -1,4 +1,4 @@
-package com.apptech.yohannes.paymentassistant.fragments;
+package com.apptech.yohannes.paymentassistant.fragments.evdo;
 
 import android.app.Fragment;
 import android.content.Context;

@@ -16,10 +16,10 @@ import android.widget.ListView;
 import com.apptech.yohannes.paymentassistant.R;
 import com.apptech.yohannes.paymentassistant.domain.Contact;
 import com.apptech.yohannes.paymentassistant.fragments.AboutFragment;
-import com.apptech.yohannes.paymentassistant.fragments.ContactListFragment;
-import com.apptech.yohannes.paymentassistant.fragments.ContactTasksFragment;
-import com.apptech.yohannes.paymentassistant.fragments.EVDOFragment;
-import com.apptech.yohannes.paymentassistant.fragments.MobileFragment;
+import com.apptech.yohannes.paymentassistant.fragments.mobile.ContactListFragment;
+import com.apptech.yohannes.paymentassistant.fragments.mobile.ContactTasksFragment;
+import com.apptech.yohannes.paymentassistant.fragments.evdo.EVDOFragment;
+import com.apptech.yohannes.paymentassistant.fragments.mobile.MobileFragment;
 import com.apptech.yohannes.paymentassistant.services.ContactsService;
 
 import java.util.List;
