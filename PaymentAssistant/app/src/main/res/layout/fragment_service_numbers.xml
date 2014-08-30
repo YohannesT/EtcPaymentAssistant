@@ -14,5 +14,9 @@
         android:footerDividersEnabled="false"
         android:focusableInTouchMode="false"
         android:divider="@color/white"
-        android:childIndicatorStart="20dp" />
+        android:headerDividersEnabled="true"
+        android:clickable="true"
+        android:fastScrollEnabled="true"
+        android:drawSelectorOnTop="false"
+        android:listSelector="@color/babyBlue" />
 </LinearLayout>
