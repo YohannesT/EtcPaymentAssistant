@@ -1,10 +1,8 @@
 package com.apptech.yohannes.paymentassistant.adapters;
 
-import android.database.DataSetObserver;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ExpandableListAdapter;
 
 /**
  * Created by Yohannes Tamru on 8/30/2014.
