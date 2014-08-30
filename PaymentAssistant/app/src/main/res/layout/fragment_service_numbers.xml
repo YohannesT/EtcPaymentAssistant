@@ -7,5 +7,12 @@
     <ExpandableListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/expandableListView" />
+        android:id="@+id/expandableListView"
+        android:choiceMode="singleChoice"
+        android:smoothScrollbar="true"
+        android:stackFromBottom="false"
+        android:footerDividersEnabled="false"
+        android:focusableInTouchMode="false"
+        android:divider="@color/white"
+        android:childIndicatorStart="20dp" />
 </LinearLayout>

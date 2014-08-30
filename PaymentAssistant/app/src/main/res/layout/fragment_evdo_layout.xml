@@ -22,7 +22,6 @@
         android:layout_height="wrap_content"
         android:inputType="phone"
         android:ems="10"
-        android:textAlignment="center"
         android:cursorVisible="false"
         style="@style/numbersTextBox"
         android:hint="@string/evdoNumber" />

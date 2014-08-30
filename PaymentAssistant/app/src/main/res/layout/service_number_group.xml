@@ -2,15 +2,15 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:drawable/editbox_background_normal">
 
     <ImageView
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:id="@+id/imgGroupHeader"
-        android:src="@drawable/etflag"
+        android:src="@drawable/money"
         android:scaleType="fitXY"
-        android:layout_gravity="center"
         android:layout_marginLeft="10dp" />
 
     <TextView
@@ -19,7 +19,6 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
         android:id="@+id/txtGroupTitle"
-        android:layout_gravity="center"
         android:textSize="28dp"
         android:textAlignment="center"
         android:textColor="@color/dark" />
