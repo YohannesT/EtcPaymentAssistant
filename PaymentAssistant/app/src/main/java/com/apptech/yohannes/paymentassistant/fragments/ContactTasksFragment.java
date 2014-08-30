@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -16,7 +17,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.apptech.yohannes.paymentassistant.R;
-import com.apptech.yohannes.paymentassistant.adapters.CashListAdapter;
 import com.apptech.yohannes.paymentassistant.core.CallMeBackTask;
 import com.apptech.yohannes.paymentassistant.core.CashTransferTask;
 import com.apptech.yohannes.paymentassistant.core.ITask;
@@ -36,8 +36,6 @@ public class ContactTasksFragment extends Fragment {
     private PhoneService  phoneService ;
 
     private LinearLayout userTaskControllerLayout;
-
-    private CashListAdapter cashListAdapter;
 
     private OnFragmentInteractionListener mListener;
 
@@ -97,7 +95,7 @@ public class ContactTasksFragment extends Fragment {
         btnCallMeBack.setOnLongClickListener(eventHandler);
         layout.setOnTouchListener(eventHandler);
         cashSelector.setOnItemClickListener(eventHandler);
-        cashListAdapter = new CashListAdapter(getActivity().getBaseContext(), Util.IntFactory());
+
         return view;
     }
 
@@ -131,7 +129,7 @@ public class ContactTasksFragment extends Fragment {
             else if(view == btnCallMeBack)
                 Toast.makeText(getActivity().getBaseContext(), "Tap and hold", Toast.LENGTH_SHORT).show();
             else if(view == btnTransferCash){
-                cashSelector.setAdapter(cashListAdapter);
+                cashSelector.setAdapter(new ArrayAdapter<Integer>(getActivity(), android.R.layout.simple_list_item_1, Util.IntFactory()));
                 cashSelector.setVisibility(View.VISIBLE);
                 userTaskControllerLayout.setVisibility(View.GONE);
             }
