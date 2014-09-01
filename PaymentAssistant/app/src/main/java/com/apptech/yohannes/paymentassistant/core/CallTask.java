@@ -9,12 +9,14 @@ import com.apptech.yohannes.paymentassistant.services.PhoneService;
 /**
  * Created by Yohannes on 7/19/2014.
  */
-public class BalanceCheckTask implements ITask {
+public class CallTask implements ITask {
    private PhoneService _phoneService;
+   private String phoneNumber;
 
-    public BalanceCheckTask(Context context)
+    public CallTask(Context context, String phoneNumber)
     {
         _phoneService = new PhoneService(context);
+        this.phoneNumber = phoneNumber;
     }
 
     public TaskType GetTaskType() {
@@ -23,6 +25,6 @@ public class BalanceCheckTask implements ITask {
 
     @Override
     public Boolean Execute() {
-        return _phoneService.Call("*804" + Uri.encode("#"));
+        return _phoneService.Call(phoneNumber);
     }
 }

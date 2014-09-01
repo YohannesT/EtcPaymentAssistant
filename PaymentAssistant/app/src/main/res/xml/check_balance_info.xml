@@ -4,8 +4,8 @@
     android:minHeight="40dp"
     android:updatePeriodMillis="86400000"
     android:previewImage="@drawable/check_balance_widget"
-    android:initialLayout="@layout/check_balance"
+    android:initialLayout="@layout/widget_check_balance"
     android:resizeMode="horizontal|vertical"
     android:widgetCategory="home_screen"
-    android:initialKeyguardLayout="@layout/check_balance">
+    android:initialKeyguardLayout="@layout/widget_check_balance">
 </appwidget-provider>

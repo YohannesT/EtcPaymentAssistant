@@ -1,4 +1,4 @@
-package com.apptech.yohannes.paymentassistant.fragments;
+package com.apptech.yohannes.paymentassistant.fragments.mobile;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -15,7 +15,6 @@ import android.widget.TextView;
 import com.apptech.yohannes.paymentassistant.R;
 import com.apptech.yohannes.paymentassistant.adapters.ContactsAdapter;
 import com.apptech.yohannes.paymentassistant.domain.Contact;
-import com.apptech.yohannes.paymentassistant.helpers.ColorsHelper;
 
 import java.io.Serializable;
 import java.util.List;

@@ -1,9 +1,11 @@
 package com.apptech.yohannes.paymentassistant.activities;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
@@ -16,10 +18,11 @@ import android.widget.ListView;
 import com.apptech.yohannes.paymentassistant.R;
 import com.apptech.yohannes.paymentassistant.domain.Contact;
 import com.apptech.yohannes.paymentassistant.fragments.AboutFragment;
-import com.apptech.yohannes.paymentassistant.fragments.ContactListFragment;
-import com.apptech.yohannes.paymentassistant.fragments.ContactTasksFragment;
-import com.apptech.yohannes.paymentassistant.fragments.EVDOFragment;
-import com.apptech.yohannes.paymentassistant.fragments.MobileFragment;
+import com.apptech.yohannes.paymentassistant.fragments.mobile.ContactListFragment;
+import com.apptech.yohannes.paymentassistant.fragments.mobile.ContactTasksFragment;
+import com.apptech.yohannes.paymentassistant.fragments.evdo.EVDOFragment;
+import com.apptech.yohannes.paymentassistant.fragments.mobile.MobileFragment;
+import com.apptech.yohannes.paymentassistant.fragments.service_numbers.ServiceNumbersFragment;
 import com.apptech.yohannes.paymentassistant.services.ContactsService;
 
 import java.util.List;
@@ -35,6 +38,7 @@ public class MainActivity extends Activity implements ContactListFragment.OnFrag
     private DrawerLayout drawerLayout;
     private ListView drawerMenu;
 
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
     public void onCreate(Bundle bundle){
         super.onCreate(bundle);
@@ -66,25 +70,31 @@ public class MainActivity extends Activity implements ContactListFragment.OnFrag
                     Fragment fragment = new EVDOFragment();
                     getFragmentManager().beginTransaction().replace(R.id.mainContent, fragment).commit();
                 }
+                else if(i == 2)
+                {
+                    Fragment fragment = new ServiceNumbersFragment();
+                    getFragmentManager().beginTransaction().replace(R.id.mainContent, fragment).commit();
+                }
                 else {
                     Fragment fragment = new AboutFragment();
                     getFragmentManager().beginTransaction().replace(R.id.mainContent, fragment).commit();
                 }
 
-                getActionBar().setTitle(getResources().getString(R.string.app_name) + " " + selectedMenuItem);
+                getActionBar().setTitle(getResources().getString(R.string.app_name) + ": " + selectedMenuItem);
 
                 drawerLayout.closeDrawers();
             }
         });
 
-        Fragment mobileActivity = new MobileFragment();
-        getFragmentManager().beginTransaction().replace(R.id.mainContent, mobileActivity).commit();
-        ShowContactListFragment();
+        if(bundle == null){
+        //if brand new instance of the app is started, this code will load mobile fragment, else, leave the previous fragment untouched
+            Fragment mobileActivity = new MobileFragment();
+            getFragmentManager().beginTransaction().replace(R.id.mainContent, mobileActivity).commit();
+            ShowContactListFragment();
+        }
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
-
-        contactListFragment = ContactListFragment.newInstance(contacts);
     }
 
     @Override
@@ -134,7 +144,15 @@ public class MainActivity extends Activity implements ContactListFragment.OnFrag
 
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.setCustomAnimations(R.animator.animate_in, R.animator.animate_out);
-        fragmentTransaction.remove(contactListFragment);//this solves a problem where the contact list is sometimes not displayed
+
+        try
+        {
+            fragmentTransaction.remove(contactListFragment);//this solves a problem where the contact list is sometimes not displayed
+        }
+         catch (Exception ex)
+         {
+             //ignore this error
+         }
         fragmentTransaction.replace(R.id.fragmentContainer, contactListFragment).commit();
     }
 

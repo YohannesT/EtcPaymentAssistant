@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="emergencyNumbers">
+        <item>Ambulance, 902</item>
+        <item>Ambulance, 907</item>
+        <item>Police, 911</item>
+        <item>Electricity, 905</item>
+        <item>Water, 906</item>
+        <item>Fire, 902</item>
+        <item>Fire, 903</item>
+        <item>Red Cross, 0115150608</item>
+    </string-array>
+
+    <string-array name="teleServiceNumbers">
+        <item>Local Operator, 999</item>
+        <item>International Operator, 998</item>
+    </string-array>
+
+</resources>
+
+    <!--24-hour service. •	1st Station-Giorgis area 93, 011156-7004 •	2nd Staion- Kera area 011-466-3420/ 011-466-3421 •	3rd Station-Mesalemia area 011-276-9146/ 011-213-4239 •	4th Station- Addis Gomma area 011-442-5563/011-442-5564 •	5th Station- Akaki area 011-434- 0096 •	6th Station- Megenagnia area 011-663-0373-->

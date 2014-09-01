@@ -1,4 +1,4 @@
-package com.apptech.yohannes.paymentassistant.fragments;
+package com.apptech.yohannes.paymentassistant.fragments.mobile;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -18,7 +18,6 @@ import com.apptech.yohannes.paymentassistant.activities.CameraActivity;
 import com.apptech.yohannes.paymentassistant.core.BalanceCheckTask;
 import com.apptech.yohannes.paymentassistant.core.BalanceFillTask;
 import com.apptech.yohannes.paymentassistant.core.ITask;
-import com.apptech.yohannes.paymentassistant.fragments.ContactListFragment;
 import com.apptech.yohannes.paymentassistant.helpers.Util;
 
 public class MobileFragment extends Fragment  {
