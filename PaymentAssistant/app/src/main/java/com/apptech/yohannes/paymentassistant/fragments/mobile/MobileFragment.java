@@ -1,5 +1,6 @@
 package com.apptech.yohannes.paymentassistant.fragments.mobile;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
@@ -26,6 +27,7 @@ public class MobileFragment extends Fragment  {
     private Button btnCheck, btnFill, btnOCR;
     private EditText etCardNumber;
     private ContactListFragment contactListFragment;
+    private OnFragmentInteractionListener mListener;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -51,7 +53,23 @@ public class MobileFragment extends Fragment  {
             }
         });
 
+        mListener.ShowContactListFragment();
         return view;
+    }
+
+    public interface OnFragmentInteractionListener {
+        public void ShowContactListFragment();
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            mListener = (OnFragmentInteractionListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
     }
 
     @Override
