@@ -1,6 +1,5 @@
 package com.apptech.yohannes.paymentassistant.fragments.mobile;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
@@ -22,14 +21,18 @@ import com.apptech.yohannes.paymentassistant.core.BalanceFillTask;
 import com.apptech.yohannes.paymentassistant.core.ITask;
 import com.apptech.yohannes.paymentassistant.domain.Contact;
 import com.apptech.yohannes.paymentassistant.helpers.Util;
+import com.apptech.yohannes.paymentassistant.services.ContactsService;
 
-public class MobileFragment extends Fragment implements ContactListFragment.OnContactListInteractionListener {
+import java.util.List;
+
+public class MobileFragment extends Fragment implements ContactListFragment.OnContactListInteractionListener, ContactTasksFragment.OnContactDetailFragmentInteractionListener {
 
     //View elements
     private Button btnCheck, btnFill, btnOCR;
     private EditText etCardNumber;
     private ContactListFragment contactListFragment;
-    private OnFragmentInteractionListener mListener;
+
+    private List<Contact> contacts;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -46,6 +49,9 @@ public class MobileFragment extends Fragment implements ContactListFragment.OnCo
         btnFill.setOnClickListener(eventHandler);
         btnOCR.setOnClickListener(eventHandler);
 
+        ContactsService contactService = new ContactsService(getActivity());
+        contacts = contactService.GetContacts();
+
         //To make sure the keyboard shows up everytime user taps the card number EditTextView
         etCardNumber.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,23 +61,8 @@ public class MobileFragment extends Fragment implements ContactListFragment.OnCo
             }
         });
 
-        mListener.ShowContactListFragment();
+        ShowContactListFragment();
         return view;
-    }
-
-    public interface OnFragmentInteractionListener {
-        public void ShowContactListFragment();
-    }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            mListener = (OnFragmentInteractionListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
     }
 
     @Override
@@ -127,11 +118,33 @@ public class MobileFragment extends Fragment implements ContactListFragment.OnCo
     @Override
     public void ShowContactDetail(Contact contact, int backgroundColor) {
         ContactTasksFragment contactTasksFragment =  ContactTasksFragment.newInstance(contact, backgroundColor);
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
         fragmentTransaction
                 .setCustomAnimations(R.animator.animate_in, R.animator.animate_out);
-        fragmentTransaction.replace(R.id.fragmentContainer, contactTasksFragment)
+        fragmentTransaction.replace(R.id.fragmentContainer, contactTasksFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction
                 .commit();
+    }
+
+    @Override
+    public void ShowContactListFragment() {
+        if(contactListFragment == null)
+            contactListFragment = ContactListFragment.newInstance(contacts);
+
+        FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.animator.animate_in, R.animator.animate_out);
+
+        try        {
+           fragmentTransaction.remove(contactListFragment);//this solves a problem where the contact list is sometimes not displayed
+        }
+        catch (Exception ex)         {
+            //ignore this error
+        }
+
+        fragmentTransaction.replace(R.id.fragmentContainer, contactListFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 
 }

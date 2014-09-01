@@ -30,9 +30,7 @@ import java.util.List;
 /**
  * Created by Yohannes on 8/28/2014.
  */
-public class MainActivity extends Activity implements ContactTasksFragment.OnFragmentInteractionListener, MobileFragment.OnFragmentInteractionListener {
-
-    private List<Contact> contacts;
+public class MainActivity extends Activity{
     private Fragment contactListFragment;
     private ActionBarDrawerToggle drawerToggle;
 
@@ -48,9 +46,6 @@ public class MainActivity extends Activity implements ContactTasksFragment.OnFra
 
         drawerLayout = (DrawerLayout)findViewById(R.id.mainDrawer);
         drawerMenu = (ListView)findViewById(R.id.navigationDrawerList);
-
-        ContactsService contactService = new ContactsService(getApplicationContext());
-        contacts = contactService.GetContacts();
 
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.drawable.ic_drawer, R.string.open, R.string.close);
 
@@ -133,30 +128,6 @@ public class MainActivity extends Activity implements ContactTasksFragment.OnFra
         // Handle your other action bar items...
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void HideContactDetail() {
-        ShowContactListFragment();
-    }
-
-    public void ShowContactListFragment() {
-        if(contactListFragment == null)
-            contactListFragment = ContactListFragment.newInstance(contacts);
-
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.animator.animate_in, R.animator.animate_out);
-
-        try        {
-            fragmentTransaction.remove(contactListFragment);//this solves a problem where the contact list is sometimes not displayed
-        }
-         catch (Exception ex)         {
-             //ignore this error
-         }
-
-        fragmentTransaction.replace(R.id.fragmentContainer, contactListFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
     }
 
 }

@@ -42,7 +42,6 @@ public class ContactListFragment extends Fragment implements AbsListView.OnItemC
     public ContactListFragment() {
     }
 
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +61,7 @@ public class ContactListFragment extends Fragment implements AbsListView.OnItemC
         mListView = (AbsListView) view.findViewById(android.R.id.list);
         mListView.setAdapter(mAdapter);
         mListView.setOnItemClickListener(this);
+
         return view;
     }
 

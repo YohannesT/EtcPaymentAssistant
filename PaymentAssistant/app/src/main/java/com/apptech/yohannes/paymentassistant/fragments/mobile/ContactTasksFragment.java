@@ -1,7 +1,9 @@
 package com.apptech.yohannes.paymentassistant.fragments.mobile;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Fragment;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
@@ -37,7 +39,7 @@ public class ContactTasksFragment extends Fragment {
 
     private LinearLayout userTaskControllerLayout;
 
-    private OnFragmentInteractionListener mListener;
+    private OnContactDetailFragmentInteractionListener mListener;
 
     private int labelBackgroundColor = 0;
 
@@ -62,6 +64,8 @@ public class ContactTasksFragment extends Fragment {
             contact = (Contact)getArguments().getSerializable("Contact");
             labelBackgroundColor = getArguments().getInt("LabelColor");
         }
+
+        onAttachFragment(getParentFragment());
     }
 
     @Override
@@ -100,24 +104,18 @@ public class ContactTasksFragment extends Fragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            mListener = (OnFragmentInteractionListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
     }
 
-    public interface OnFragmentInteractionListener {
-        public void HideContactDetail();
+    public void onAttachFragment(Fragment fragment) {
+        try {
+            mListener = (OnContactDetailFragmentInteractionListener) fragment;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(fragment.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
     }
 
     private class EventHandler implements View.OnClickListener, View.OnLongClickListener, View.OnTouchListener, AdapterView.OnItemClickListener
@@ -145,7 +143,7 @@ public class ContactTasksFragment extends Fragment {
                task = new CallMeBackTask(getActivity().getBaseContext(), contact);
                task.Execute();
             }
-
+            
             return true;
         }
 
@@ -169,8 +167,12 @@ public class ContactTasksFragment extends Fragment {
         public boolean onFling(MotionEvent m1, MotionEvent m2, float velocityX, float velocityY)
         {
             if(m2.getX() - m1.getX() > 40)
-                mListener.HideContactDetail();
+                mListener.ShowContactListFragment();
             return true;
         }
+    }
+
+    public interface OnContactDetailFragmentInteractionListener {
+        public void ShowContactListFragment();
     }
 }
