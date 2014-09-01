@@ -2,6 +2,7 @@ package com.apptech.yohannes.paymentassistant.fragments.mobile;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,9 +20,10 @@ import com.apptech.yohannes.paymentassistant.activities.CameraActivity;
 import com.apptech.yohannes.paymentassistant.core.BalanceCheckTask;
 import com.apptech.yohannes.paymentassistant.core.BalanceFillTask;
 import com.apptech.yohannes.paymentassistant.core.ITask;
+import com.apptech.yohannes.paymentassistant.domain.Contact;
 import com.apptech.yohannes.paymentassistant.helpers.Util;
 
-public class MobileFragment extends Fragment  {
+public class MobileFragment extends Fragment implements ContactListFragment.OnContactListInteractionListener {
 
     //View elements
     private Button btnCheck, btnFill, btnOCR;
@@ -120,6 +122,16 @@ public class MobileFragment extends Fragment  {
             }
             return false;
         }
+    }
+
+    @Override
+    public void ShowContactDetail(Contact contact, int backgroundColor) {
+        ContactTasksFragment contactTasksFragment =  ContactTasksFragment.newInstance(contact, backgroundColor);
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction
+                .setCustomAnimations(R.animator.animate_in, R.animator.animate_out);
+        fragmentTransaction.replace(R.id.fragmentContainer, contactTasksFragment)
+                .commit();
     }
 
 }

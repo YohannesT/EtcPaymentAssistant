@@ -1,8 +1,10 @@
 package com.apptech.yohannes.paymentassistant.fragments.mobile;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Fragment;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,7 +25,7 @@ public class ContactListFragment extends Fragment implements AbsListView.OnItemC
 
     private List<Contact> contactList;
 
-    private OnFragmentInteractionListener mListener;
+    private OnContactListInteractionListener mListener;
 
     private AbsListView mListView;
 
@@ -32,21 +34,24 @@ public class ContactListFragment extends Fragment implements AbsListView.OnItemC
     public static ContactListFragment newInstance(List<Contact> contactList) {
         ContactListFragment fragment = new ContactListFragment();
         Bundle args = new Bundle();
-        args.putSerializable("Contacts", (Serializable)contactList);
+        args.putSerializable("Contacts", (Serializable) contactList);
         fragment.setArguments(args);
         return fragment;
     }
 
-    public ContactListFragment() { }
+    public ContactListFragment() {
+    }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         if (getArguments() != null)
-            contactList = (List<Contact>)getArguments().getSerializable("Contacts");
+            contactList = (List<Contact>) getArguments().getSerializable("Contacts");
 
         mAdapter = new ContactsAdapter(getActivity().getBaseContext(), contactList);
+        onAttachFragment(getParentFragment());
     }
 
     @Override
@@ -60,14 +65,12 @@ public class ContactListFragment extends Fragment implements AbsListView.OnItemC
         return view;
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+    public void onAttachFragment(Fragment fragment) {
         try {
-            mListener = (OnFragmentInteractionListener) activity;
+            mListener = (OnContactListInteractionListener) fragment;
         } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                + " must implement OnFragmentInteractionListener");
+            throw new ClassCastException(fragment.toString()
+                    + " must implement OnFragmentInteractionListener");
         }
     }
 
@@ -87,7 +90,7 @@ public class ContactListFragment extends Fragment implements AbsListView.OnItemC
         }
     }
 
-    public interface OnFragmentInteractionListener {
+    public interface OnContactListInteractionListener {
         public void ShowContactDetail(Contact contact, int color);
     }
 

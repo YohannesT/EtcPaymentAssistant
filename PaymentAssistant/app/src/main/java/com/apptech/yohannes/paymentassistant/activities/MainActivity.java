@@ -30,8 +30,7 @@ import java.util.List;
 /**
  * Created by Yohannes on 8/28/2014.
  */
-public class MainActivity extends Activity implements ContactListFragment.OnFragmentInteractionListener,
-        ContactTasksFragment.OnFragmentInteractionListener, MobileFragment.OnFragmentInteractionListener {
+public class MainActivity extends Activity implements ContactTasksFragment.OnFragmentInteractionListener, MobileFragment.OnFragmentInteractionListener {
 
     private List<Contact> contacts;
     private Fragment contactListFragment;
@@ -134,16 +133,6 @@ public class MainActivity extends Activity implements ContactListFragment.OnFrag
         // Handle your other action bar items...
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void ShowContactDetail(Contact contact, int backgroundColor) {
-        ContactTasksFragment contactTasksFragment =  ContactTasksFragment.newInstance(contact, backgroundColor);
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction
-                .setCustomAnimations(R.animator.animate_in, R.animator.animate_out);
-        fragmentTransaction.replace(R.id.fragmentContainer, contactTasksFragment)
-                .commit();
     }
 
     @Override
