@@ -1,10 +1,7 @@
 package com.apptech.yohannes.paymentassistant.fragments.mobile;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;

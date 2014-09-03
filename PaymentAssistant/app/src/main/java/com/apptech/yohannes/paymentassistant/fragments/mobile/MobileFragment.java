@@ -1,7 +1,7 @@
 package com.apptech.yohannes.paymentassistant.fragments.mobile;
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;

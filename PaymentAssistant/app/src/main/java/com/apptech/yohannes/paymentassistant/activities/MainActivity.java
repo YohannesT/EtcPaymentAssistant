@@ -1,9 +1,9 @@
 package com.apptech.yohannes.paymentassistant.activities;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,29 +16,20 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.apptech.yohannes.paymentassistant.R;
-import com.apptech.yohannes.paymentassistant.domain.Contact;
 import com.apptech.yohannes.paymentassistant.fragments.AboutFragment;
 import com.apptech.yohannes.paymentassistant.fragments.evdo.EVDOFragment;
-import com.apptech.yohannes.paymentassistant.fragments.mobile.ContactListFragment;
-import com.apptech.yohannes.paymentassistant.fragments.mobile.ContactTasksFragment;
 import com.apptech.yohannes.paymentassistant.fragments.mobile.MobileFragment;
 import com.apptech.yohannes.paymentassistant.fragments.service_numbers.ServiceNumbersFragment;
-import com.apptech.yohannes.paymentassistant.services.ContactsService;
-
-import java.util.List;
 
 /**
  * Created by Yohannes on 8/28/2014.
  */
 public class MainActivity extends Activity{
-    private Fragment contactListFragment;
     private ActionBarDrawerToggle drawerToggle;
 
     private DrawerLayout drawerLayout;
     private ListView drawerMenu;
 
-
-    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
     public void onCreate(Bundle bundle){
         super.onCreate(bundle);

@@ -1,9 +1,6 @@
 package com.apptech.yohannes.paymentassistant.fragments.mobile;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.app.Fragment;
-import android.os.Build;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
@@ -143,7 +140,7 @@ public class ContactTasksFragment extends Fragment {
                task = new CallMeBackTask(getActivity().getBaseContext(), contact);
                task.Execute();
             }
-            
+
             return true;
         }
 

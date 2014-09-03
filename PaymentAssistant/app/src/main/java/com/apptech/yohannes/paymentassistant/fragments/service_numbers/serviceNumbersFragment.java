@@ -1,6 +1,6 @@
 package com.apptech.yohannes.paymentassistant.fragments.service_numbers;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
