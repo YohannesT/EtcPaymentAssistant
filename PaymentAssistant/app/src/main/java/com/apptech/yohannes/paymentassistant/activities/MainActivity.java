@@ -166,7 +166,7 @@ public class MainActivity extends Activity implements ContactListFragment.OnFrag
          }
 
         fragmentTransaction.replace(R.id.fragmentContainer, contactListFragment);
-        fragmentTransaction.addToBackStack(null);
+        //sfragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 
